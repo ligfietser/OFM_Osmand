@@ -21,24 +21,30 @@
 	- slightly larger fonts for the cycleways
 -->
 
-
-	<renderingProperty attr="NumberInPath" name="Show network number inside cycleway" description="Show network number inside cycleway instead of perpendicular over cycleway" 
-			type="boolean" possibleValues=""/>
-	<renderingProperty attr="NodeNumber" name="Show node numbers instead of cycleway numbers" description="Show node numbers instead of cycleway numbers" 
-			type="boolean" possibleValues=""/>
-	<renderingProperty attr="OpenFietsMap" name="OpenFietsMap style" description="Try to mimic OpenFietsMap style"
-			type="boolean" possibleValues=""/>
-	
-
 	
 	<!-- Use hmRendered for more map detail and better visibility of small roads -->
 	<renderingConstant name="hmRendered" value="true"/>
+	
+	<!-- Surface=paved same color as asphalt -->
+	<renderingConstant name="surfacePavedColor" value="#eae6f3"/>
 	
 	<renderingAttribute name="gpx">
 		<case strokeWidth="1:5" cap="BUTT">
 			<case nightMode="true" color="#b4b319ff"/>
 			<case additional="routePoints=true" pathEffect="6_5" color="#b400ffff"/>
 			<case color="#8000008A"/>
+		</case>
+	</renderingAttribute>
+	
+	<renderingAttribute name="cyclewayColor">
+		<case attrColorValue="#FF0000">
+			<apply_if nightMode="true" attrColorValue="#FF0000"/>
+		</case>	
+	</renderingAttribute>	
+	
+	<renderingAttribute name="trackColor">
+		<case attrColorValue="#996600">
+			<apply_if nightMode="true" attrColorValue="#996600"/>
 		</case>
 	</renderingAttribute>
 	
@@ -237,7 +243,8 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 					</groupFilter>
 				</filter>
-				<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=no" color_3="#000000" strokewidth_3="2" pathEffect_3="4_4"/>
+				<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
 			</groupFilter>
 		</group>
 
@@ -267,14 +274,17 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 			 		</groupFilter>
 				</filter>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#000000" strokewidth_3="2" pathEffect_3="4_4"/>
+				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
 			</groupFilter>
 		</group>
-
+		
 		<group>
 			<filter tag="highway" value="road"/>
 			<filter tag="highway" value="unclassified"/>
 			<filter tag="highway" value="residential"/>
+			<filter tag="highway" value="service"/>
+			<filter tag="highway" value="living_street"/>
 			<groupFilter shadowRadius=":1" cap="ROUND">
 				<filter minzoom="12" maxzoom="12" strokeWidth="2"/>
 				<filter minzoom="13" maxzoom="13" strokeWidth="2"/> 
@@ -296,15 +306,14 @@
 				 	</groupFilter>
 				</filter>
 				<groupFilter nightMode="true" color="#9F9F9F"/>
-				<groupFilter minzoom="15" additional="access=no" color_3="#F7D4D4" strokeWidth_3="4" pathEffect_3="10_3"/> 
-				<groupFilter minzoom="15" additional="access=private" color_3="#F7D4D4" strokeWidth_3="4" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#000000" strokewidth_3="2" pathEffect_3="4_4"/>
+				<groupFilter minzoom="15" additional="access=no" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/> 
+				<groupFilter minzoom="15" additional="access=private" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokeWidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokeWidth_3="1" pathEffect_3="10_3"/>
 			</groupFilter>
 		</group>
 
 		<group>
-			<filter tag="highway" value="service"/>
-			<filter tag="highway" value="living_street"/>
 			<filter tag="highway" value="pedestrian"/>
 			<groupFilter color="#ececec" shadowRadius=":1" cap="ROUND">
 				<filter minzoom="13" maxzoom="13" strokeWidth="1"/>
@@ -327,7 +336,8 @@
 				</filter>
 				<groupFilter minzoom="15" additional="access=no" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/> 
 				<groupFilter minzoom="15" additional="access=private" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#000000" strokewidth_3="2" pathEffect_3="4_3"/>
+				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_2"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_2"/>
 			</groupFilter>
 			<!-- pedestrian roads are forbidden for cars and cyclists: show them like that in car and bicycle mode -->
 			<groupFilter appMode="car" tag="highway" value="pedestrian" color="#F7D4D4"/>
@@ -345,52 +355,66 @@
 				<filter test="$hmRendered" minzoom="13" strokeWidth="1"/>
 				<filter minzoom="14" strokeWidth="1"/>
 			</filter>
-			<groupFilter minzoom="15" additional="bicycle=no" color_3="#000000" strokewidth_3="2" pathEffect_3="4_3"/>
+			<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="3" pathEffect="10_4"/>
+		
+		<group>
+				<filter tag="highway" value="track"/>
+				<!-- color_5 needed for tracks/paths etc. to make them visible over showSurfaces/showSurfaceGrade etc. -->
+				<groupFilter color="$trackColor">
+					<!-- In ped mode with Alpine Hiking, make tracks solid to more clearly distinguish them from paths (forum feedback of 2012-12-06) -->
+					<filter alpineHiking="true" appMode="pedestrian" pathEffect_5=""/>
 
-			<group>
-				<filter  tag="highway" value="track" color="#BDB76B" pathEffect="8_4"/>
-				<groupFilter>
-					<filter  minzoom="12" maxzoom="12" strokeWidth="1"/>
-					<filter  minzoom="13" maxzoom="13" strokeWidth="2"/>
-					<filter  minzoom="14" maxzoom="14" strokeWidth="3"/>
-					<filter  minzoom="15" strokeWidth="4"/>
-					<!-- Dash pattern: solid(100%), long-dashed(77%), short-dashed(63%), dash-dotted(50%), dotted(50%), dotted2(40%), short-dashed-narrow-spaced(66%) for not-specified -->
 					<filter additional="tracktype=grade1" pathEffect=""/>
-					<filter additional="tracktype=grade2" pathEffect="10_3"/>
-					<filter additional="tracktype=grade3" pathEffect="5_3"/>
-					<filter additional="tracktype=grade4" pathEffect="4_3_2_3"/>
-					<filter additional="tracktype=grade5" pathEffect="2_3"/>
+					<filter additional="tracktype=grade2">
+						<filter minzoom="12" maxzoom="13" pathEffect="10_3"/>
+						<filter minzoom="14" pathEffect="15_4.5"/>
+					</filter>
+					<filter additional="tracktype=grade3">
+						<filter minzoom="12" maxzoom="13" pathEffect="5_3"/>
+						<filter minzoom="14" pathEffect="7.5_4.5"/>
+					</filter>
+					<filter additional="tracktype=grade4">
+						<filter minzoom="12" maxzoom="13" pathEffect="4_3_2_3"/>
+						<filter minzoom="14" pathEffect="6_4.5_3_4.5"/>
+					</filter>
+					<filter additional="tracktype=grade5">
+						<filter minzoom="12" maxzoom="13" pathEffect="2_3"/>
+						<filter minzoom="14" pathEffect="3_4.5"/>
+					</filter>
+					<filter>
+						<filter minzoom="12" maxzoom="13" pathEffect="4_2"/>
+						<filter minzoom="14" pathEffect="6_3"/>
+					</filter>
+					<groupFilter>
+						<filter appMode="pedestrian">
+							<filter minzoom="12" maxzoom="12" strokeWidth="1.2"/>
+							<filter minzoom="13" maxzoom="13" strokeWidth="1.8"/>
+							<filter minzoom="14" strokeWidth="2.5"/>
+						</filter>
+						<filter appMode="bicycle">
+							<filter minzoom="12" maxzoom="12" strokeWidth="1"/>
+							<filter minzoom="13" maxzoom="13" strokeWidth="2"/>
+							<filter minzoom="14" strokeWidth="2.8"/>
+						</filter>
+						<filter appMode="car" minzoom="13" maxzoom="13" strokeWidth="0.7"/>
+						<filter minzoom="12" maxzoom="12" strokeWidth="0.7"/>
+						<filter minzoom="13" maxzoom="13" strokeWidth="1"/>
+						<filter minzoom="14" maxzoom="14" strokeWidth="2"/>
+						<filter minzoom="15" strokeWidth="2.5"/>
+					</groupFilter>
 				</groupFilter>
-			</group>
-
-			<group>
-				<filter tag="highway" value="path" color="#BDB76B" pathEffect="8_4"/>
-				<groupFilter>
-					<filter minzoom="12" maxzoom="12" strokeWidth="0.5"/>
-					<filter minzoom="14" maxzoom="13" strokeWidth="1.5"/>
-					<filter minzoom="16" strokeWidth="2"/>
-					<!-- Dash pattern: solid(100%), long-dashed(77%), short-dashed(63%), dash-dotted(50%), dotted(50%), dotted2(40%), short-dashed-narrow-spaced(66%) for not-specified -->
-					<!-- Also: switch color to 'pedestrian-red' to better indicate these special ratings in line with many alpine maps -->
-					<filter additional="sac_scale=hiking" color="#fa5073" pathEffect=""/>
-					<filter additional="sac_scale=mountain_hiking" color="#fa5073" pathEffect="10_3"/>
-					<filter additional="sac_scale=demanding_mountain_hiking" color="#fa5073" pathEffect="5_3"/>
-					<filter additional="sac_scale=alpine_hiking" color="#fa5073" pathEffect="4_3_2_3"/>
-					<filter additional="sac_scale=demanding_alpine_hiking" color="#fa5073" pathEffect="3_3"/>
-					<filter additional="sac_scale=difficult_alpine_hiking" color="#fa5073" pathEffect="2_3"/>
-					<filter nightMode="true" color="#787878"/> 
-				</groupFilter>
-			</group>
-
-
-			<group>
+		</group>
+	
+		<group>
 				<filter  tag="highway" value="footway" color="#BDB76B" pathEffect="8_4"/>
 				<groupFilter>
 					<filter minzoom="12" maxzoom="12" strokeWidth="0.5"/>
 					<filter minzoom="14" strokeWidth="1.5"/>
 					<filter minzoom="16" strokeWidth="2"/>
 				</groupFilter>
-			</group>
+		</group>
 
+		
 			<filter tag="highway" value="steps" color="#fa5073" pathEffect="1_2">
 				<filter appMode="pedestrian" test="$hmRendered" minzoom="14" strokeWidth="4" pathEffect="2_2"/>
 				<filter appMode="pedestrian" minzoom="15" strokeWidth="4" pathEffect="2_2"/>
