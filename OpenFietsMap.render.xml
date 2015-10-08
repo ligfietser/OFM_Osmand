@@ -278,8 +278,8 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 			 		</groupFilter>
 				</filter>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_3"/>
 			</groupFilter>
 		</group>
 		
@@ -310,10 +310,10 @@
 				 	</groupFilter>
 				</filter>
 				<groupFilter nightMode="true" color="#9F9F9F"/>
-				<groupFilter minzoom="15" additional="access=no" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/> 
-				<groupFilter minzoom="15" additional="access=private" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokeWidth_3="1" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokeWidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="access=no" shadowRadius="1" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="10_3"/> 
+				<groupFilter minzoom="15" additional="access=private" shadowRadius="1" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color_3="#FFD1FF" strokeWidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" shadowRadius=":1" color_3="#FFD1FF" strokeWidth_3="1" pathEffect_3="10_3"/>
 			</groupFilter>
 		</group>
 
@@ -338,10 +338,10 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 			 		</groupFilter>
 				</filter>
-				<groupFilter minzoom="15" additional="access=no" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/> 
-				<groupFilter minzoom="15" additional="access=private" color_3="#F7D4D4" strokeWidth_3="2" pathEffect_3="10_3"/>
-				<groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_2"/>
-				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#A4A4A4" strokewidth_3="1" pathEffect_3="10_2"/>
+				<groupFilter minzoom="15" additional="access=no" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="10_3"/> 
+				<groupFilter minzoom="15" additional="access=private" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="10_3"/>
+				<groupFilter minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_2"/>
+				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_2"/>
 			</groupFilter>
 			<!-- pedestrian roads are forbidden for cars and cyclists: show them like that in car and bicycle mode -->
 			<groupFilter appMode="car" tag="highway" value="pedestrian" color="#F7D4D4"/>
@@ -359,7 +359,7 @@
 				<filter test="$hmRendered" minzoom="13" strokeWidth="1"/>
 				<filter minzoom="14" strokeWidth="1"/>
 			</filter>
-			<!-- groupFilter minzoom="15" additional="bicycle=no" color_3="#A4A4A4" strokewidth_3="3" pathEffect="10_4" -->
+			<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="4_2"/>
 		
 		<group>
 				<filter tag="highway" value="footway" strokeWidth="2" pathEffect="4_2" color="#585858"/>
