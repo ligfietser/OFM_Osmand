@@ -36,6 +36,8 @@
 		</case>
 	</renderingAttribute>
 	
+	<renderingConstant name="waterColorDay" value="#acd8f3"/>
+	
 	<renderingAttribute name="cyclewayColor">
 		<case attrColorValue="#FF0000">
 			<apply_if nightMode="true" attrColorValue="#FF0000"/>
@@ -48,6 +50,8 @@
 		</case>
 	</renderingAttribute>
 	
+	<renderingConstant name="constructionRoadColor" value="#BD9500"/>
+	<renderingConstant name="constructionRoadColor2" value="#ffffff"/>
 	<order>
 		<group appMode="bicycle">
 			<filter tag="lcn_network" value="lcn" order="112"/>
@@ -315,7 +319,7 @@
 
 		<group>
 			<filter tag="highway" value="pedestrian"/>
-			<groupFilter color="#ececec" shadowRadius=":1" cap="ROUND">
+			<groupFilter color="#BDBDBD" shadowRadius=":1" cap="ROUND">
 				<filter minzoom="13" maxzoom="13" strokeWidth="1"/>
 				<filter color_0="#000000">
 					<filter minzoom="14" maxzoom="14" strokeWidth="2"/>
@@ -406,14 +410,27 @@
 		</group>
 	
 		<group>
-				<filter  tag="highway" value="footway" color="#BDB76B" pathEffect="8_4"/>
+				<filter tag="highway" value="footway" strokeWidth="2" pathEffect="4_2" color="#585858"/>
 				<groupFilter>
-					<filter minzoom="12" maxzoom="12" strokeWidth="0.5"/>
-					<filter minzoom="14" strokeWidth="1.5"/>
-					<filter minzoom="16" strokeWidth="2"/>
+				<filter additional="surface=paved" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+				<filter additional="surface=asphalt" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+				<filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+				<filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
 				</groupFilter>
 		</group>
 
+		<group>
+				<filter tag="highway" value="path" strokeWidth="2" pathEffect="4_2" color="#585858"/>
+				<groupFilter>
+				<filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=paved" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=asphalt" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				</groupFilter>
+		</group>
 		
 			<filter tag="highway" value="steps" color="#fa5073" pathEffect="1_2">
 				<filter appMode="pedestrian" test="$hmRendered" minzoom="14" strokeWidth="4" pathEffect="2_2"/>
@@ -498,7 +515,7 @@
 				</groupFilter>
 			</group>
 			<!-- Waterway color -->
-			<groupFilter color="#b5d0d0">
+			<groupFilter color="$waterColorDay">
 				<filter nightMode="true" color="#330099"/>
 			</groupFilter>
 		</group>
