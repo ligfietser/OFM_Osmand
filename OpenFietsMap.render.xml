@@ -29,11 +29,47 @@
 	<renderingConstant name="surfacePavedColor" value="#eae6f3"/>
 	
 	<renderingAttribute name="gpx">
-		<case strokeWidth="1:5" cap="BUTT">
-			<case nightMode="true" color="#b4b319ff"/>
-			<case additional="routePoints=true" pathEffect="6_5" color="#b400ffff"/>
-			<case color="#8000008A"/>
-		</case>
+		<switch>
+			<case currentTrackColor="red" color="#ff0000"/>
+			<case currentTrackColor="orange" color="#ff7200"/>
+			<case currentTrackColor="lightblue" color="#2ec6ff"/>
+			<case currentTrackColor="blue" color="#4e4eff"/>
+			<case currentTrackColor="purple" color="#a71de1"/>
+			<case currentTrackColor="translucent_red" color="#aaff0000"/>
+			<case currentTrackColor="translucent_orange" color="#aaff7200"/>
+			<case currentTrackColor="translucent_lightblue" color="#aa00ffff"/>
+			<case currentTrackColor="translucent_blue" color="#aa4e4eff"/>
+			<case currentTrackColor="translucent_purple" color="#aaa71de1"/>
+			<case color="#000000">
+				<apply_if roadStyle="germanRoadAtlas" color="#aa0088"/> <!-- does not works -->
+			</case>
+			<apply cap="ROUND">
+				<case currentTrackWidth="thin">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" strokeWidth="2"/>
+					<apply_if additional="routePoints=true" pathEffect="5_4"/>
+				</case>
+				<case currentTrackWidth="medium">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" maxzoom="11" strokeWidth="3"/>
+					<apply_if minzoom="12" strokeWidth="5"/>
+					<apply_if additional="routePoints=true" pathEffect="8_7"/>
+				</case>
+				<case currentTrackWidth="bold">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" maxzoom="7" strokeWidth="3"/>
+					<apply_if minzoom="8" maxzoom="9" strokeWidth="5"/>
+					<apply_if minzoom="10" maxzoom="11" strokeWidth="7"/>
+					<apply_if minzoom="12" strokeWidth="11"/>
+					<apply_if additional="routePoints=true" pathEffect="8_15"/>
+				</case>
+				<case>
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" strokeWidth="2"/>
+					<apply_if additional="routePoints=true" pathEffect="5_4"/>
+				</case>
+			</apply>
+		</switch>
 	</renderingAttribute>
 	
 	<renderingConstant name="waterColorDay" value="#acd8f3"/>
