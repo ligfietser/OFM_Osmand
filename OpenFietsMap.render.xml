@@ -86,6 +86,11 @@
 		</case>
 	</renderingAttribute>
 	
+	<renderingAttribute name="railwayRailColor">
+		<case nightMode="true" attrColorValue="#25454d"/>
+		<case attrColorValue="#506c73"/>
+	</renderingAttribute>
+	
 	<renderingConstant name="constructionRoadColor" value="#BD9500"/>
 	<renderingConstant name="constructionRoadColor2" value="#ffffff"/>
 	<order>
