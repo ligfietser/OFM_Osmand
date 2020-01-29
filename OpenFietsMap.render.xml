@@ -27,7 +27,7 @@
 	
 	<!-- Surface=paved same color as asphalt -->
 	<renderingConstant name="surfacePavedColor" value="#eae6f3"/>
-	
+			
 	<renderingAttribute name="gpx">
 		<switch>
 			<case currentTrackColor="red" color="#ff0000"/>
@@ -78,8 +78,47 @@
 		<case attrColorValue="#FF0000">
 			<apply_if nightMode="true" attrColorValue="#FF0000"/>
 		</case>	
+	</renderingAttribute>
+
+	<renderingAttribute name="cycleRouteTextColor">
+		<case attrColorValue="#0000ff">
+			<apply_if nightMode="true" attrColorValue="#D9E6FF"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="cycleRouteTextHaloColor">
+		<case attrColorValue="#ddffffff">
+			<apply_if nightMode="true" attrColorValue="#dd1D1787"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="cycleRoutelcnColor">
+		<case engine_v1="false" attrColorValue="#45cc66ff"/>
+		<case attrColorValue="#90cc66ff" pathEffect="6_9">
+			<apply_if nightMode="true" attrColorValue="#80cc66ff"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="cycleRoutercnColor">
+		<case engine_v1="false" attrColorValue="#45ff33cc"/>
+		<case attrColorValue="#900000ff" pathEffect="6_9">
+			<apply_if nightMode="true" attrColorValue="#70ff33cc"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="cycleRoutencnColor">
+		<case engine_v1="false" attrColorValue="#456600ff"/>
+		<case attrColorValue="#906600ff" pathEffect="6_9">
+			<apply_if nightMode="true" attrColorValue="#706600ff"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="cycleRouteicnColor">
+		<case engine_v1="false" attrColorValue="#456600ff"/>
+		<case attrColorValue="#906600ff" pathEffect="6_9">
+			<apply_if nightMode="true" attrColorValue="#706600ff"/>
+		</case>
+	</renderingAttribute>
+		<renderingAttribute name="cycleRouteColor">
+		<case attrColorValue="#900000ff" pathEffect="6_9">
+			<apply_if nightMode="true" attrColorValue="#900000ff"/>
+		</case>
 	</renderingAttribute>	
-	
 	<renderingAttribute name="trackColor">
 		<case attrColorValue="#996600">
 			<apply_if nightMode="true" attrColorValue="#996600"/>
@@ -110,30 +149,31 @@
 	<text>
 		<group appMode="bicycle">
 			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#0000ff" textOrder="9"/>
-			<filter NodeNumber="false" tag="rcn_network" value="rcn" nameTag="rcn_ref" textColor="#ff00ff" textOrder="8"/>
+			<filter NodeNumber="false" tag="rcn_network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
 			<filter NodeNumber="false" tag="ncn_network" value="ncn" nameTag="ncn_ref" textColor="#ff4000" textOrder="7"/>
 			<filter NodeNumber="false" tag="icn_network" value="icn" nameTag="icn_ref" textColor="#ff4000" textOrder="7"/>
 			<filter tag="lcn_network" value="lcn" nameTag="ref" textColor="#0000ff" textOrder="9"/>
-			<filter tag="rcn_network" value="rcn" nameTag="ref" textColor="#ff00ff" textOrder="8"/>
+			<filter tag="rcn_network" value="rcn" nameTag="ref" textColor="#0000ff" textOrder="8"/>
 			<filter tag="ncn_network" value="ncn" nameTag="ref" textColor="#ff4000" textOrder="7"/>
 			<filter tag="icn_network" value="icn" nameTag="ref" textColor="#ff4000" textOrder="7"/>
 
 			<filter tag="network" value="lcn" nameTag="lcn_ref" textColor="#0000ff" textOrder="9"/>
-			<filter tag="network" value="rcn" nameTag="rcn_ref" textColor="#ff00ff" textOrder="8"/>
+			<filter tag="network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
 			<filter tag="network" value="ncn" nameTag="ncn_ref" textColor="#ff4000" textOrder="7"/>
 			<filter tag="network" value="icn" nameTag="icn_ref" textColor="#ff4000" textOrder="7"/>
 			<filter tag="lcn_ref" value="" textColor="#0000ff" textOrder="9"/>
-			<filter tag="rcn_ref" value="" textColor="#ff00ff" textOrder="8"/>
+			<filter tag="rcn_ref" value="" textColor="#0000ff" textOrder="8"/>
 			<filter tag="ncn_ref" value="" textColor="#ff4000" textOrder="7"/>
 			<filter tag="icn_ref" value="" textColor="#ff4000" textOrder="7"/>
 			<groupFilter NumberInPath="true" appMode="bicycle" textOnPath="true" />
 			<groupFilter appMode="bicycle">
-				<filter minzoom="10" maxzoom="15" textHaloRadius="1" textSize="18"/>
-				<filter minzoom="16" maxzoom="16" textHaloRadius="1" textSize="18"/>
-				<filter minzoom="17" maxzoom="17" textHaloRadius="1" textSize="23"/>
-				<filter minzoom="18" textHaloRadius="1" textSize="25"/>
+				<filter minzoom="10" maxzoom="10" textHaloRadius="1" textSize="6"/>
+				<filter minzoom="11" maxzoom="12" textHaloRadius="1" textSize="10"/>
+				<filter minzoom="13" maxzoom="15" textBold="true" textHaloRadius="2" textSize="12"/>
+				<filter minzoom="16" maxzoom="17" textBold="true" textHaloRadius="4" textWrapWidth="30" textSize="20"/>
+				<filter minzoom="18" textBold="true" textHaloRadius="4" textSize="25"/>
 			</groupFilter>
-			<groupFilter textColor="#ff0000"/>
+			<groupFilter textColor="#0000ff"/>
 		</group>
 	</text>
 
@@ -224,7 +264,7 @@
 	<line>
 <!-- Put "plain" cycleway first to make a default. Later lanes, lcn/rcn/ncn settings can overrule the default -->
 		<group>
-			<filter  tag="highway" value="cycleway" color="#ff0000" shadowRadius="1"/>
+			<filter  tag="highway" value="cycleway" color="#ff0000" minzoom="10" shadowRadius="1"/>
 			<groupFilter shadowRadius=":1" cap="ROUND">
 				<!--<filter minzoom="10" maxzoom="12" strokeWidth="1"/>
 				<filter minzoom="13" maxzoom="13" strokeWidth="2"/>
@@ -431,7 +471,7 @@
 				<filter tag="highway" value="path" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
 				<filter tag="highway" value="path" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
 				<groupFilter minzoom="15">
-				<filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+		<!--		<filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/> -->
 				<filter additional="surface=paved"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
 				<filter additional="surface=asphalt"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
 				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
@@ -468,7 +508,6 @@
 			</groupFilter>
 		</group>
 
-
 		<group>
 <!--			<filter  appMode="bicycle" tag="lcn_network" value="lcn" color="#800000ff" pathEffect="12_12"/> -->
 			<filter  appMode="bicycle" tag="lcn_network" value="lcn" color="#80FF00FF" pathEffect="12_12"/> <!-- temp mtb -->
@@ -490,6 +529,7 @@
 				</filter>
 			</groupFilter>
 		</group>
+
 
 		<!-- Copy "Group of all Waterways with same color"; Remove pathEffect from default render xml -->
 		<group>
