@@ -92,7 +92,7 @@
 	</renderingAttribute>
 	<renderingAttribute name="cycleRoutelcnColor">
 		<case engine_v1="false" attrColorValue="#45cc66ff"/>
-		<case attrColorValue="#90cc66ff" pathEffect="6_9">
+		<case attrColorValue="#90cc33ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#80cc66ff"/>
 		</case>
 	</renderingAttribute>
@@ -148,23 +148,23 @@
 
 	<text>
 		<group appMode="bicycle">
-			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#0000ff" textOrder="9"/>
+			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#cc33ff" textOrder="9"/>
 			<filter NodeNumber="false" tag="rcn_network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
-			<filter NodeNumber="false" tag="ncn_network" value="ncn" nameTag="ncn_ref" textColor="#ff4000" textOrder="7"/>
-			<filter NodeNumber="false" tag="icn_network" value="icn" nameTag="icn_ref" textColor="#ff4000" textOrder="7"/>
-			<filter tag="lcn_network" value="lcn" nameTag="ref" textColor="#0000ff" textOrder="9"/>
+			<filter NodeNumber="false" tag="ncn_network" value="ncn" nameTag="ncn_ref" textColor="#9933ff" textOrder="7"/>
+			<filter NodeNumber="false" tag="icn_network" value="icn" nameTag="icn_ref" textColor="#9933ff" textOrder="7"/>
+			<filter tag="lcn_network" value="lcn" nameTag="ref" textColor="#cc33ff" textOrder="9"/>
 			<filter tag="rcn_network" value="rcn" nameTag="ref" textColor="#0000ff" textOrder="8"/>
-			<filter tag="ncn_network" value="ncn" nameTag="ref" textColor="#ff4000" textOrder="7"/>
-			<filter tag="icn_network" value="icn" nameTag="ref" textColor="#ff4000" textOrder="7"/>
+			<filter tag="ncn_network" value="ncn" nameTag="ref" textColor="#9933ff" textOrder="7"/>
+			<filter tag="icn_network" value="icn" nameTag="ref" textColor="#9933ff" textOrder="7"/>
 
-			<filter tag="network" value="lcn" nameTag="lcn_ref" textColor="#0000ff" textOrder="9"/>
+			<filter tag="network" value="lcn" nameTag="lcn_ref" textColor="#cc33ff" textOrder="9"/>
 			<filter tag="network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
-			<filter tag="network" value="ncn" nameTag="ncn_ref" textColor="#ff4000" textOrder="7"/>
-			<filter tag="network" value="icn" nameTag="icn_ref" textColor="#ff4000" textOrder="7"/>
-			<filter tag="lcn_ref" value="" textColor="#0000ff" textOrder="9"/>
+			<filter tag="network" value="ncn" nameTag="ncn_ref" textColor="#9933ff" textOrder="7"/>
+			<filter tag="network" value="icn" nameTag="icn_ref" textColor="#9933ff" textOrder="7"/>
+			<filter tag="lcn_ref" value="" textColor="#cc33ff" textOrder="9"/>
 			<filter tag="rcn_ref" value="" textColor="#0000ff" textOrder="8"/>
-			<filter tag="ncn_ref" value="" textColor="#ff4000" textOrder="7"/>
-			<filter tag="icn_ref" value="" textColor="#ff4000" textOrder="7"/>
+			<filter tag="ncn_ref" value="" textColor="#9933ff" textOrder="7"/>
+			<filter tag="icn_ref" value="" textColor="#9933ff" textOrder="7"/>
 			<groupFilter NumberInPath="true" appMode="bicycle" textOnPath="true" />
 			<groupFilter appMode="bicycle">
 				<filter minzoom="10" maxzoom="10" textHaloRadius="1" textSize="6"/>
@@ -513,27 +513,76 @@
 		</group>
 
 		<group>
-<!--			<filter  appMode="bicycle" tag="lcn_network" value="lcn" color="#800000ff" pathEffect="12_12"/> -->
-			<filter  appMode="bicycle" tag="lcn_network" value="lcn" color="#80FF00FF" pathEffect="12_12"/> <!-- temp mtb -->
-			<filter  appMode="bicycle" tag="rcn_network" value="rcn" color="#800000ff" pathEffect="12_12"/>
-			<filter  appMode="bicycle" tag="ncn_network" value="ncn" color="#800000ff" pathEffect="12_12"/>
-			<filter  appMode="bicycle" tag="icn_network" value="icn" color="#800000ff" pathEffect="12_12"/>
+			<filter  appMode="bicycle" tag="lcn_network" value="lcn" color="#80cc33ff" pathEffect="10_6"/> 
+			<filter  appMode="bicycle" tag="rcn_network" value="rcn" color="#800000ff" pathEffect="10_6"/>
+			<filter  appMode="bicycle" tag="ncn_network" value="ncn" color="#809933ff" pathEffect="10_6"/>
+			<filter  appMode="bicycle" tag="icn_network" value="icn" color="#809933ff" pathEffect="10_6"/>
 			<groupFilter shadowRadius=":1" cap="BUTT">
 				<filter  minzoom="10" maxzoom="12" strokeWidth="1" strokeWidth_2="1:2"/>
 				<filter  minzoom="13" maxzoom="13" strokeWidth="4" strokeWidth_2="2:2"/>
 				<filter color_0="#000000">
 					<filter  minzoom="14" maxzoom="14" strokeWidth="4" strokeWidth_2="4:2"/>
 					<filter  minzoom="15" strokeWidth="5" strokeWidth_2="5:2"/>
-<!--					<filter minzoom="16" maxzoom="16" strokeWidth="8:2"/>
-					<filter  minzoom="16" maxzoom="16" strokeWidth="13" strokeWidth_2="8:2"/>
-					<filter minzoom="17" maxzoom="17" strokeWidth="10:2"/>
-					<filter  minzoom="17" maxzoom="17" strokeWidth="16" strokeWidth_2="10:2"/>
-					<filter minzoom="18" strokeWidth="10:2"/>
-					<filter  minzoom="18" strokeWidth="13:2"/> -->
 				</filter>
 			</groupFilter>
 		</group>
-
+		
+	<switch minzoom="11">
+			<switch>
+				<case showCycleRoutes="true" tag="route_bicycle" value=""/>
+				<case showCycleNodeNetworkRoutes="true" tag="route_bicycle" value=""/>
+				<apply>
+					<case maxzoom="10" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="11" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="12" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="13" strokeWidth="2" pathEffect="3_6"/>
+					<case maxzoom="14" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="15" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="16" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="17" strokeWidth="3:3" pathEffect="10_6"/>
+					<case minzoom="18" strokeWidth="3:3" pathEffect="10_6"/>
+				</apply>
+				<apply_if minzoom="13" color="$cycleRouteColor" cap="BUTT"/>
+			</switch>
+			<apply_if showCycleNodeNetworkRoutes="true">
+				<switch>
+					<case additional="node_network=lcn" color="$cycleRoutelcnColor"/>
+					<case additional="node_network=rcn" color="$cycleRoutercnColor"/>
+					<case additional="node_network=ncn" color="$cycleRoutencnColor"/>
+					<case additional="node_network=icn" color="$cycleRouteicnColor"/>
+					<apply>
+						<case maxzoom="10" strokeWidth="1:1" pathEffect="5_5"/>
+						<case maxzoom="11" strokeWidth="1:1" pathEffect="5_5"/>
+						<case maxzoom="12" strokeWidth="2:2" pathEffect="5_5"/>
+						<case maxzoom="13" strokeWidth="3:3" pathEffect="5_5"/>
+						<case maxzoom="14" strokeWidth="4:4" pathEffect="5_5"/>
+						<case maxzoom="15" strokeWidth="4:4" pathEffect="5_5"/>
+						<case maxzoom="16" strokeWidth="5:5" pathEffect="5_5"/>
+						<case maxzoom="17" strokeWidth="6:6" pathEffect="5_5"/>
+						<case minzoom="18" strokeWidth="7:7" pathEffect="5_5"/>
+					</apply>
+				</switch>
+			</apply_if>
+			<apply_if showCycleRoutes="true">
+				<switch>
+					<case additional="network=lcn" color="$cycleRoutelcnColor"/>
+					<case additional="network=rcn" color="$cycleRoutercnColor"/>
+					<case additional="network=ncn" color="$cycleRoutencnColor"/>
+					<case additional="network=icn" color="$cycleRouteicnColor"/>
+					<apply pathEffect="">
+					<case maxzoom="10" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="11" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="12" strokeWidth="1" pathEffect="3_6"/>
+					<case maxzoom="13" strokeWidth="2" pathEffect="3_6"/>
+					<case maxzoom="14" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="15" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="16" strokeWidth="3:3" pathEffect="10_6"/>
+					<case maxzoom="17" strokeWidth="3:3" pathEffect="10_6"/>
+					<case minzoom="18" strokeWidth="3:3" pathEffect="10_6"/>
+					</apply>
+				</switch>
+			</apply_if>
+		</switch>
 
 		<!-- Copy "Group of all Waterways with same color"; Remove pathEffect from default render xml -->
 		<group>
