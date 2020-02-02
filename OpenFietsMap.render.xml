@@ -361,6 +361,8 @@
 				</filter>
 				<groupFilter minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_3"/>
 				<groupFilter minzoom="15" additional="bicycle=use_sidepath" color_3="#FFD1FF" strokewidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="10" additional="cyclestreet=yes" shadowRadius=":2" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
+				<groupFilter minzoom="10" additional="bicycle_road=yes" shadowRadius=":2" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
 			</groupFilter>
 		</group>
 		
@@ -395,6 +397,8 @@
 				<groupFilter minzoom="15" additional="access=private" shadowRadius="1" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="10_3"/>
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color_3="#FFD1FF" strokeWidth_3="1" pathEffect_3="10_3"/>
 				<groupFilter minzoom="15" additional="bicycle=use_sidepath" shadowRadius=":1" color_3="#FFD1FF" strokeWidth_3="1" pathEffect_3="10_3"/>
+				<groupFilter minzoom="10" additional="cyclestreet=yes" shadowRadius=":2" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
+				<groupFilter minzoom="10" additional="bicycle_road=yes" shadowRadius=":2" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
 			</groupFilter>
 		</group>
 
