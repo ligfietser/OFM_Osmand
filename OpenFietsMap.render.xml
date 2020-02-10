@@ -165,6 +165,7 @@
 	
 	<renderingConstant name="constructionRoadColor" value="#BD9500"/>
 	<renderingConstant name="constructionRoadColor2" value="#ffffff"/>
+	
 	<order>
 		<group appMode="bicycle">
 			<filter tag="lcn_network" value="lcn" order="112"/>
@@ -212,6 +213,21 @@
 
 
 	<point>
+		
+	<switch minzoom="17">
+		<case tag="traffic_calming" value="bump" icon="traffic_calming_bump"/>
+		<case tag="traffic_calming" value="hump" icon="traffic_calming_hump"/>
+		<case tag="traffic_calming" value="cushion" icon="traffic_calming_cushion"/>
+		<case tag="traffic_calming" value="choker" icon="traffic_calming_choker"/>
+		<case tag="traffic_calming" value="chicane" icon="traffic_calming_chicane"/>
+		<case tag="traffic_calming" value="island" icon="traffic_calming_island"/>
+		<case tag="traffic_calming" value="table" icon="traffic_calming_table"/>
+		<case tag="traffic_calming" value="rumble_strip" icon="traffic_calming_rumble_strip"/>
+		<apply moreDetailed="true" shield="blue_square_shield">
+			<apply_if nightMode="true" shield="blue_square_night_shield"/>
+		</apply>
+	</switch>
+					
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="rcn_ref"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="fietsknooppunt"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="information"/>
@@ -239,10 +255,10 @@
 			<filter  minzoom="6" color="#f6e3c7" tag="landuse" value="field"/>
 			<filter  minzoom="6" color="#f6e3c7" tag="landuse" value="farmland"/>
 			<filter  minzoom="6" color="#ddbf92" tag="landuse" value="farmyard"/>
-			<filter  minzoom="6" color="#9d9d6c" tag="landuse" value="greenfield"/>
+			<filter  minzoom="6" color="#f9f2ec" tag="landuse" value="greenfield"/>
 			<filter  minzoom="6" color="#cfeca8" tag="landuse" value="grass"/>
 			<filter  minzoom="6" color="#cfeca8" tag="landuse" value="meadow"/>
-			<filter  minzoom="6" color="#9d9d6c" tag="landuse" value="brownfield"/>
+			<filter  minzoom="6" color="#f9f2ec" tag="landuse" value="brownfield"/>
 			<filter  minzoom="6" color="#cfeca8" tag="landuse" value="conservation"/>
 			<filter  minzoom="6" color="#e1e1d0" tag="construction" value="yes"/>
 			<filter  minzoom="6" color="#cfeca8" tag="landuse" value="recreation_ground"/>
@@ -307,22 +323,12 @@
 		<case nightMode="true" attrColorValue="#2d535c"/>
 		<case attrColorValue="#666666"/>
 		</renderingAttribute>
-		
+
 	</polygon>
 
 
 	<line>
-<!-- Put "plain" cycleway first to make a default. Later lanes, lcn/rcn/ncn settings can overrule the default 
-		<group>
-			<filter  tag="highway" value="cycleway" color="#ff0000" minzoom="10" shadowRadius="1"/>
-			<groupFilter shadowRadius=":1" cap="ROUND">
-				<filter minzoom="10" maxzoom="12" strokeWidth="0.7"/>
-				<filter minzoom="13" maxzoom="13" strokeWidth="1"/>
-				<filter minzoom="14" maxzoom="14" strokeWidth="2"/>
-				<filter minzoom="15" strokeWidth="3"/>
-			</groupFilter>
-		</group>
-old -->
+
 		<group>
 			<filter tag="highway" value="cycleway" color="$cyclewayColor"/>
 			<groupFilter>
@@ -688,7 +694,7 @@ old -->
 			</apply_if>
 		</switch>
 
-		
+
 		<!-- Copy "Group of all Waterways with same color"; Remove pathEffect from default render xml -->
 		<group>
 			<filter tag="waterway" value="stream" minzoom="12" strokeWidth="2">
