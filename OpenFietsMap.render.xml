@@ -152,6 +152,11 @@
 			<apply_if nightMode="true" attrColorValue="#900000ff"/>
 		</case>
 	</renderingAttribute>	
+	<renderingAttribute name="cycleNodeTextColor">
+		<case attrColorValue="#0000ff">
+			<apply_if nightMode="true" attrColorValue="#578AEC"/>
+		</case>
+	</renderingAttribute>
 	<renderingAttribute name="trackColor">
 		<case attrColorValue="#996600">
 			<apply_if nightMode="true" attrColorValue="#996600"/>
