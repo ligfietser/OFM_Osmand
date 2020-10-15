@@ -231,6 +231,8 @@
 		<apply moreDetailed="true" shield="blue_square_shield">
 			<apply_if nightMode="true" shield="blue_square_night_shield"/>
 		</apply>
+		<case minzoom="14" tag="tourism" value="camp_site" icon="topo_camp_site" shield="topo_camp_site_shield"/>
+		<case minzoom="14" tag="tourism" value="viewpoint" icon="topo_viewpoint" shield="topo_viewpoint_shield" />
 	</switch>
 					
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="rcn_ref"/>
