@@ -20,7 +20,6 @@
 	- modify some of the colors to look more like the OpenCycleMap colors
 	- slightly larger fonts for the cycleways
 -->
-
 	
 	<!-- Use hmRendered for more map detail and better visibility of small roads -->
 	<renderingConstant name="hmRendered" value="true"/>
@@ -187,20 +186,21 @@
 
 	<text>
 		<group appMode="bicycle">
-			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#cc33ff" textOrder="9"/>
+			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#000000" textOrder="9"/> 
 			<filter NodeNumber="false" tag="rcn_network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
 			<filter NodeNumber="false" tag="ncn_network" value="ncn" nameTag="ncn_ref" textColor="#9933ff" textOrder="7"/>
 			<filter NodeNumber="false" tag="icn_network" value="icn" nameTag="icn_ref" textColor="#9933ff" textOrder="7"/>
-			<filter tag="lcn_network" value="lcn" nameTag="ref" textColor="#cc33ff" textOrder="9"/>
+			
+			<filter tag="lcn_network" value="lcn" nameTag="ref" textColor="#000000" textOrder="9"/>
 			<filter tag="rcn_network" value="rcn" nameTag="ref" textColor="#0000ff" textOrder="8"/>
 			<filter tag="ncn_network" value="ncn" nameTag="ref" textColor="#9933ff" textOrder="7"/>
 			<filter tag="icn_network" value="icn" nameTag="ref" textColor="#9933ff" textOrder="7"/>
 
-			<filter tag="network" value="lcn" nameTag="lcn_ref" textColor="#cc33ff" textOrder="9"/>
+			<filter tag="network" value="lcn" nameTag="lcn_ref" textColor="#000000" textOrder="9"/> 
 			<filter tag="network" value="rcn" nameTag="rcn_ref" textColor="#0000ff" textOrder="8"/>
 			<filter tag="network" value="ncn" nameTag="ncn_ref" textColor="#9933ff" textOrder="7"/>
 			<filter tag="network" value="icn" nameTag="icn_ref" textColor="#9933ff" textOrder="7"/>
-			<filter tag="lcn_ref" value="" textColor="#cc33ff" textOrder="9"/>
+			<filter tag="lcn_ref" value="" textColor="#000000" textOrder="9"/>
 			<filter tag="rcn_ref" value="" textColor="#0000ff" textOrder="8"/>
 			<filter tag="ncn_ref" value="" textColor="#9933ff" textOrder="7"/>
 			<filter tag="icn_ref" value="" textColor="#9933ff" textOrder="7"/>
@@ -215,10 +215,38 @@
 			<groupFilter textColor="#0000ff"/>
 		</group>
 	</text>
+				<switch minzoom="11" legend="false" textBold="true">
+					<case showCycleRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/> 
+					<case showCycleNodeNetworkRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/>  
+					<case showCycleRoutes="true" tag="node_network_point" value="lcn" nameTag="lcn_ref" textOrder="37"/>
 
+			<!--		<apply_if minzoom="11" maxzoom="14" textSize="0">
+					<apply_if textLength="3" textSize="0"/> 
+					</apply_if> -->
+					<apply_if minzoom="14" maxzoom="15" textSize="8">
+						<apply_if textLength="5" textSize="6"/>
+					</apply_if>
+					<apply_if minzoom="16" textSize="12">
+						<apply_if textLength="5" textSize="10"/>
+					</apply_if>
+
+					<apply>
+
+						<switch>
+							<case textLength="1"/>
+							<case textLength="2"/>
+							<case textLength="3"/>
+							<case textLength="4"/>
+							<case textLength="5"/>
+							<apply_if minzoom="17" textShield="white_rounded_rectangle_5_road_shield"/>
+						</switch> 
+					</apply>
+					<apply_if textColor="$cycleNodeTextColor"/>
+					<apply_if engine_v1="true" textDy="2"/>
+				</switch>
 
 	<point>
-		
+			
 	<switch minzoom="17">
 		<case tag="traffic_calming" value="bump" icon="traffic_calming_bump"/>
 		<case tag="traffic_calming" value="hump" icon="traffic_calming_hump"/>
@@ -234,10 +262,13 @@
 		<case minzoom="14" tag="tourism" value="camp_site" icon="topo_camp_site" shield="topo_camp_site_shield"/>
 		<case minzoom="14" tag="tourism" value="viewpoint" icon="topo_viewpoint" shield="topo_viewpoint_shield" />
 	</switch>
-					
+	
+
+		<filter minzoom="11" icon="emergency_phone" tag="highway" value="emergency_access_point" nameTag="ref" />
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="rcn_ref"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="fietsknooppunt"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="information"/>
+		
 	</point>
 
 
@@ -308,7 +339,9 @@
 			<filter minzoom="15" color="#f4f1ec" tag="leisure" value="playground"/>
 			<filter minzoom="12" color="#f4f1ec" tag="leisure" value="garden"/>
 			<filter minzoom="12" color="#f4f1ec" tag="leisure" value="common"/>
-
+			<filter minzoom="14" color_2="#2d862d" strokeWidth_2="1" pathEffect_2="5_10" tag="leisure" value="nature_reserve"/>
+			<filter minzoom="14" color_2="#2d862d" strokeWidth_2="1" pathEffect_2="5_10" tag="boundary" value="protected_area"/>
+			
 			<groupFilter nightMode="true" color="#004333"/>
 		</group>
 
@@ -700,7 +733,7 @@
 				</switch>
 			</apply_if>
 		</switch>
-
+		
 
 		<!-- Copy "Group of all Waterways with same color"; Remove pathEffect from default render xml -->
 		<group>
