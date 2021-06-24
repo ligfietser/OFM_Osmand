@@ -339,8 +339,10 @@
 			<filter minzoom="15" color="#f4f1ec" tag="leisure" value="playground"/>
 			<filter minzoom="12" color="#f4f1ec" tag="leisure" value="garden"/>
 			<filter minzoom="12" color="#f4f1ec" tag="leisure" value="common"/>
-			<filter minzoom="14" color_2="#2d862d" strokeWidth_2="1" pathEffect_2="5_10" tag="leisure" value="nature_reserve"/>
-			<filter minzoom="14" color_2="#2d862d" strokeWidth_2="1" pathEffect_2="5_10" tag="boundary" value="protected_area"/>
+			<filter minzoom="11" maxzoom="14" color_2="#2d862d" strokeWidth_2="0.5" tag="leisure" value="nature_reserve"/>
+			<filter minzoom="11" maxzoom="14" color_2="#2d862d" strokeWidth_2="0.5" tag="boundary" value="protected_area"/>
+			<filter minzoom="15" color_2="#2d862d" strokeWidth_2="0" tag="leisure" value="nature_reserve"/>
+			<filter minzoom="15" color_2="#2d862d" strokeWidth_2="0" tag="boundary" value="protected_area"/>
 			
 			<groupFilter nightMode="true" color="#004333"/>
 		</group>
