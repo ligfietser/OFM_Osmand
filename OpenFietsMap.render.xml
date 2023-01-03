@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<renderingStyle name="OpenFietsMap.render" depends="default" defaultColor="#D8F7BA" version="1">
-
+<renderingStyle name="OpenFietsMap.render" depends="default" defaultColor="#ebe7e4" version="1">
 
 <!--
 	HvdW, 20140507, Detach the OpenFietsMap render style from the cycle map and make it a separate render file
@@ -12,7 +11,7 @@
  	HvdW, 20130728, minor changes 
     	- Add rendering property NumberInPath. Cycle network number perpendicular on route or "textonpath". some like it one way, some the other.
 	- minor changes in strokewidth and text size
-	
+
 	HvdW, 20130609, cyclemap
 	- Copy the "showCycleRoutes" stuff from the "Touring-view_(more-contrast-and-details).render" file
 	  (thanks to Hardy Mueller and Christof Knuesel)
@@ -20,12 +19,13 @@
 	- modify some of the colors to look more like the OpenCycleMap colors
 	- slightly larger fonts for the cycleways
 -->
-	
+
 	<!-- Use hmRendered for more map detail and better visibility of small roads -->
 	<renderingConstant name="hmRendered" value="true"/>
-	
+
 	<!-- Surface=paved same color as asphalt -->
 	<renderingConstant name="surfacePavedColor" value="#eae6f3"/>
+
 	<renderingConstant name="cyclewayMinZoom" value="11"/>
 
 	<renderingAttribute name="gpx">
@@ -75,7 +75,7 @@
 	<renderingAttribute name="pedestrianTextColor">
 		<case attrColorValue="#000000" textBold="false">
 		<case tag="area:highway" value="pedestrian" textBold="false" textItalic="false" textWrapWidth="15" intersectsWith="any"/>
-		<apply_if nightMode="true" attrColorValue="#BDBDBD"/>
+      <apply_if nightMode="true" attrColorValue="#BDBDBD"/>
 		</case>
 	</renderingAttribute>
 	
@@ -83,27 +83,27 @@
 		<case attrColorValue="#000000" textBold="false">
 		<case tag="area:highway" value="residential" textBold="false" textItalic="false" textWrapWidth="15" intersectsWith="any"/>
 		<case tag="area:highway" value="unclassified" textBold="false" textItalic="false" textWrapWidth="15" intersectsWith="any"/>
-		<apply_if nightMode="true" attrColorValue="#ffffff"/>
+      <apply_if nightMode="true" attrColorValue="#ffffff"/>
 		</case>
 	</renderingAttribute>
 	
 	<renderingAttribute name="serviceTextColor">
 		<case attrColorValue="#000000" textBold="false">
 		<case tag="area:highway" value="service" textBold="false" textItalic="false" textWrapWidth="15" intersectsWith="any"/>
-		<apply_if nightMode="true" attrColorValue="#ffffff"/>
+      <apply_if nightMode="true" attrColorValue="#ffffff"/>
 		</case>
 	</renderingAttribute>
 	
 	<renderingAttribute name="racewayColor">
 		<case attrColorValue="#f0f5f5">
-		<apply_if nightMode="true" attrColorValue="#bfaa69"/>
+      <apply_if nightMode="true" attrColorValue="#bfaa69"/>
 		</case>
 	</renderingAttribute>
 	
 	<renderingConstant name="waterColorDay" value="#5cc3e5"/>
 	
 	<renderingAttribute name="waterwayArrows">
-	<case moreDetailed="false" attrIntValue="0"/>
+    <case moreDetailed="false" attrIntValue="0"/>
 	</renderingAttribute>
 	
 	<renderingAttribute name="cyclewayColor">
@@ -117,45 +117,53 @@
 			<apply_if nightMode="true" attrColorValue="#D9E6FF"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="cycleRouteTextHaloColor">
 		<case attrColorValue="#ddffffff">
 			<apply_if nightMode="true" attrColorValue="#dd1D1787"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="cycleRoutelcnColor">
 		<case engine_v1="false" attrColorValue="#45cc66ff"/>
 		<case attrColorValue="#90cc33ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#80cc66ff"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="cycleRoutercnColor">
 		<case engine_v1="false" attrColorValue="#45ff33cc"/>
 		<case attrColorValue="#900000ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#70ff33cc"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="cycleRoutencnColor">
 		<case engine_v1="false" attrColorValue="#456600ff"/>
 		<case attrColorValue="#906600ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#706600ff"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="cycleRouteicnColor">
 		<case engine_v1="false" attrColorValue="#456600ff"/>
 		<case attrColorValue="#906600ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#706600ff"/>
 		</case>
 	</renderingAttribute>
-		<renderingAttribute name="cycleRouteColor">
+
+  <renderingAttribute name="cycleRouteColor">
 		<case attrColorValue="#900000ff" pathEffect="6_9">
 			<apply_if nightMode="true" attrColorValue="#900000ff"/>
 		</case>
-	</renderingAttribute>	
+	</renderingAttribute>
+
 	<renderingAttribute name="cycleNodeTextColor">
 		<case attrColorValue="#0000ff">
 			<apply_if nightMode="true" attrColorValue="#578AEC"/>
 		</case>
 	</renderingAttribute>
+
 	<renderingAttribute name="trackColor">
 		<case attrColorValue="#996600">
 			<apply_if nightMode="true" attrColorValue="#996600"/>
@@ -166,10 +174,11 @@
 		<case nightMode="true" attrColorValue="#25454d"/>
 		<case attrColorValue="#506c73"/>
 	</renderingAttribute>
-	
+
 	<renderingConstant name="constructionRoadColor" value="#BD9500"/>
+
 	<renderingConstant name="constructionRoadColor2" value="#ffffff"/>
-	
+
 	<order>
 		<group appMode="bicycle">
 			<filter tag="lcn_network" value="lcn" order="112"/>
@@ -180,10 +189,23 @@
 				<filter point="true" objectType="1" order="74"/>
 			</groupFilter>
 		</group>
-
 	</order>
-
-
+	
+	<renderingAttribute name="tertiaryRoadColor">
+		<case baseAppMode="bicycle" additional="cyclestreet=yes" attrColorValue="#ff8080"/>
+		<case baseAppMode="bicycle" additional="bicycle_road=yes" attrColorValue="#ff8080"/>
+	</renderingAttribute>
+	
+	<renderingAttribute name="residentialRoadColor">
+		<case baseAppMode="bicycle" additional="cyclestreet=yes" attrColorValue="#ff8080"/>
+		<case baseAppMode="bicycle" additional="bicycle_road=yes" attrColorValue="#ff8080"/>
+	</renderingAttribute>
+	
+	<renderingAttribute name="serviceRoadColor">
+		<case baseAppMode="bicycle" additional="cyclestreet=yes" attrColorValue="#ff8080"/>
+		<case baseAppMode="bicycle" additional="bicycle_road=yes" attrColorValue="#ff8080"/>
+	</renderingAttribute>	
+	
 	<text>
 		<group appMode="bicycle">
 			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#000000" textOrder="9"/> 
@@ -214,63 +236,63 @@
 			</groupFilter>
 			<groupFilter textColor="#0000ff"/>
 		</group>
+
+    <switch minzoom="11" legend="false" textBold="true">
+      <case showCycleRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/> 
+      <case showCycleNodeNetworkRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/>  
+      <case showCycleRoutes="true" tag="node_network_point" value="lcn" nameTag="lcn_ref" textOrder="37"/>
+
+      <!--
+      <apply_if minzoom="11" maxzoom="14" textSize="0">
+        <apply_if textLength="3" textSize="0"/> 
+      </apply_if>
+      -->
+      <apply_if minzoom="14" maxzoom="15" textSize="8">
+        <apply_if textLength="5" textSize="6"/>
+      </apply_if>
+      <apply_if minzoom="16" textSize="12">
+        <apply_if textLength="5" textSize="10"/>
+      </apply_if>
+
+      <apply>
+        <switch>
+          <case textLength="1"/>
+          <case textLength="2"/>
+          <case textLength="3"/>
+          <case textLength="4"/>
+          <case textLength="5"/>
+          <apply_if minzoom="17" textShield="white_rounded_rectangle_5_road_shield"/>
+        </switch> 
+      </apply>
+      <apply_if textColor="$cycleNodeTextColor"/>
+      <apply_if engine_v1="true" textDy="2"/>
+    </switch>
 	</text>
-				<switch minzoom="11" legend="false" textBold="true">
-					<case showCycleRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/> 
-					<case showCycleNodeNetworkRoutes="true" tag="multiple_node_networks" value="true" nameTag="lcn_ref_value" textOrder="37"/>  
-					<case showCycleRoutes="true" tag="node_network_point" value="lcn" nameTag="lcn_ref" textOrder="37"/>
-
-			<!--		<apply_if minzoom="11" maxzoom="14" textSize="0">
-					<apply_if textLength="3" textSize="0"/> 
-					</apply_if> -->
-					<apply_if minzoom="14" maxzoom="15" textSize="8">
-						<apply_if textLength="5" textSize="6"/>
-					</apply_if>
-					<apply_if minzoom="16" textSize="12">
-						<apply_if textLength="5" textSize="10"/>
-					</apply_if>
-
-					<apply>
-
-						<switch>
-							<case textLength="1"/>
-							<case textLength="2"/>
-							<case textLength="3"/>
-							<case textLength="4"/>
-							<case textLength="5"/>
-							<apply_if minzoom="17" textShield="white_rounded_rectangle_5_road_shield"/>
-						</switch> 
-					</apply>
-					<apply_if textColor="$cycleNodeTextColor"/>
-					<apply_if engine_v1="true" textDy="2"/>
-				</switch>
 
 	<point>
-			
-	<switch minzoom="17">
-		<case tag="traffic_calming" value="bump" icon="traffic_calming_bump"/>
-		<case tag="traffic_calming" value="hump" icon="traffic_calming_hump"/>
-		<case tag="traffic_calming" value="cushion" icon="traffic_calming_cushion"/>
-		<case tag="traffic_calming" value="choker" icon="traffic_calming_choker"/>
-		<case tag="traffic_calming" value="chicane" icon="traffic_calming_chicane"/>
-		<case tag="traffic_calming" value="island" icon="traffic_calming_island"/>
-		<case tag="traffic_calming" value="table" icon="traffic_calming_table"/>
-		<case tag="traffic_calming" value="rumble_strip" icon="traffic_calming_rumble_strip"/>
-		<apply moreDetailed="true" shield="blue_square_shield">
-			<apply_if nightMode="true" shield="blue_square_night_shield"/>
-		</apply>
-		<case minzoom="14" tag="tourism" value="camp_site" icon="topo_camp_site" shield="topo_camp_site_shield"/>
-		<case minzoom="14" tag="tourism" value="viewpoint" icon="topo_viewpoint" shield="topo_viewpoint_shield" />
-	</switch>
-	
+
+    <switch minzoom="17">
+      <case tag="traffic_calming" value="bump" icon="traffic_calming_bump"/>
+      <case tag="traffic_calming" value="hump" icon="traffic_calming_hump"/>
+      <case tag="traffic_calming" value="cushion" icon="traffic_calming_cushion"/>
+      <case tag="traffic_calming" value="choker" icon="traffic_calming_choker"/>
+      <case tag="traffic_calming" value="chicane" icon="traffic_calming_chicane"/>
+      <case tag="traffic_calming" value="island" icon="traffic_calming_island"/>
+      <case tag="traffic_calming" value="table" icon="traffic_calming_table"/>
+      <case tag="traffic_calming" value="rumble_strip" icon="traffic_calming_rumble_strip"/>
+      <apply moreDetailed="true" shield="blue_square_shield">
+        <apply_if nightMode="true" shield="blue_square_night_shield"/>
+      </apply>
+      <case minzoom="14" tag="tourism" value="camp_site" icon="topo_camp_site" shield="topo_camp_site_shield"/>
+      <case minzoom="14" tag="tourism" value="viewpoint" icon="topo_viewpoint" shield="topo_viewpoint_shield" />
+    </switch>
 
 		<filter minzoom="11" icon="emergency_phone" tag="highway" value="emergency_access_point" nameTag="ref" />
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="rcn_ref"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="fietsknooppunt"/>
 		<filter minzoom="11" icon="tourism_information" tag="tourism" value="information"/>
-		
-	</point>
 
+	</point>
 
 	<!-- PRIORITY Input to filter : tag, value, zoom [minzoom, maxzoom] -->
 	<polygon>
@@ -314,7 +336,6 @@
 			<filter  minzoom="12" color="#ffffff" tag="area:highway" value="service" textBold="false" textItalic="false"/>
 			<filter  minzoom="12" color="#ffffff" tag="area:highway" value="unclassified" textBold="false" textItalic="false"/>
 			<filter  minzoom="12" color="#ffffff" tag="area:highway" value="residential" textBold="false" textItalic="false"/>
-			
 
 			<!-- Define a lot of Mapnik cyclemap colors as well -->
 			<filter minzoom="12" color="#f4f1ed" tag="natural" value="heath"/>
@@ -343,7 +364,7 @@
 			<filter minzoom="11" maxzoom="14" color_2="#2d862d" strokeWidth_2="0.5" tag="boundary" value="protected_area"/>
 			<filter minzoom="15" color_2="#2d862d" strokeWidth_2="0" tag="leisure" value="nature_reserve"/>
 			<filter minzoom="15" color_2="#2d862d" strokeWidth_2="0" tag="boundary" value="protected_area"/>
-			
+
 			<groupFilter nightMode="true" color="#004333"/>
 		</group>
 
@@ -355,19 +376,18 @@
 			<filter  tag="natural" minzoom="6" value="land" color="#D8F7BA"/>
 		</group>
 		<filter minzoom="14" color="#f6eeb7" tag="amenity" value="bicycle_parking"/>
-		
+
 		<renderingAttribute name="landuseConstructionColor">
-		<case nightMode="true" attrColorValue="#f5f5f0"/>
-		<case moreDetailed="true" attrColorValue="#f5f5f0"/>
-		<case attrColorValue="#e1e1d0"/>
+      <case nightMode="true" attrColorValue="#f5f5f0"/>
+      <case moreDetailed="true" attrColorValue="#f5f5f0"/>
+      <case attrColorValue="#e1e1d0"/>
 		</renderingAttribute>
 		<renderingAttribute name="landuseConstructionStrokeColor">
-		<case nightMode="true" attrColorValue="#2d535c"/>
-		<case attrColorValue="#666666"/>
+      <case nightMode="true" attrColorValue="#2d535c"/>
+      <case attrColorValue="#666666"/>
 		</renderingAttribute>
 
 	</polygon>
-
 
 	<line>
 
@@ -396,7 +416,7 @@
 				<groupFilter minzoom="14" additional="access=no" color="#80c2c2d6" color_3="#e1e1d0" pathEffect_3="5_1"/> 
 				<groupFilter minzoom="14" additional="access=private" color="#80c2c2d6" color_3="#e1e1d0" pathEffect_3="5_1"/>
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#e0e0eb" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
-				</groupFilter>
+      </groupFilter>
 		</group>
 
 		<switch>
@@ -412,8 +432,8 @@
 			<apply color="$cyclewayColor" shadowRadius="0.5" strokeWidth="1" pathEffect="8_4"/>
 		</switch>
 
-<!-- Put "plain" cycleway and cycleway tags first to make a default. Later lanes (left/right/both), lcn/rcn/ncn settings can overrule the default -->
-			
+    <!-- Put "plain" cycleway and cycleway tags first to make a default. Later lanes (left/right/both), lcn/rcn/ncn settings can overrule the default -->
+
 		<!-- Copied from default render to enable multiple colors for cyclemap and OFM -->
 		<group>
 			<filter  tag="highway" value="motorway" color="#8389E1" color_0="#ff0000"/>
@@ -447,7 +467,7 @@
 				</filter>
 			</groupFilter>
 		</group>
-		
+
 		<group>
 			<filter  tag="highway" value="secondary" color="#ffca00" color_0="#ff0000"/>
 			<filter  tag="highway" value="secondary_link" color="#ffca00" color_0="#ff0000"/>
@@ -512,19 +532,15 @@
 				<groupFilter minzoom="10" additional="bicycle_road=yes" shadowRadius=":0" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
 			</groupFilter>
 		</group>
-		
 		<group>
-			<filter tag="highway" value="road"/>
-			<filter tag="highway" value="unclassified"/>
-			<filter tag="highway" value="residential"/>
-			<filter tag="highway" value="service"/>
-			<filter tag="highway" value="living_street"/>
+			<filter  tag="highway" value="unclassified" color="#ffffff"/>
+			<filter  tag="highway" value="residential" color="#ffffff"/>
 			<groupFilter>
-				<filter minzoom="12" maxzoom="12" strokeWidth="1"/>
-				<filter minzoom="13" maxzoom="13" strokeWidth="2"/> 
 				<filter color_0="#808080">
-					<filter minzoom="14" maxzoom="14" shadowRadius=":2" strokeWidth="4"/>
-					<filter minzoom="15" maxzoom="15" shadowRadius=":2" strokeWidth="6"/>
+					<filter minzoom="12" maxzoom="12" shadowRadius=":1" strokeWidth="1"/>
+					<filter minzoom="13" maxzoom="13" shadowRadius=":2" strokeWidth="2"/>
+					<filter minzoom="14" maxzoom="14" shadowRadius=":2" strokeWidth="3"/>
+					<filter minzoom="15" maxzoom="15" shadowRadius=":2" strokeWidth="5"/>
 					<filter minzoom="16" maxzoom="16" shadowRadius=":2" strokeWidth="8"/>
 					<filter minzoom="17" maxzoom="17" shadowRadius=":3" strokeWidth="10"/>
 					<filter minzoom="18" shadowRadius=":3" strokeWidth="14"/>
@@ -537,24 +553,11 @@
 						<filter minzoom="17" maxzoom="17" strokeWidth_0="13:2"/>
 						<filter minzoom="18" strokeWidth_0="14:2"/>
 						<groupFilter nightMode="true" color_0="#ffffff"/>
-				 	</groupFilter>
+			 		</groupFilter>
 				</filter>
-				<groupFilter nightMode="true" color="#9F9F9F"/>
-				<groupFilter minzoom="15" additional="motorcar=no" shadowRadius="1" color="#ffffff" color_2="#00e600" strokeWidth_2="8" pathEffect_2="4_8" color_3="#ffffff"/>
-				<groupFilter minzoom="13" additional="construction=yes" color_0="#e1e1d0" color="#e1e1d0" pathEffect="5_2" />
-				<groupFilter minzoom="14" additional="access=no" strokeWidth="3" color="#e1e1d0" color_3="#c2c2d6" strokeWidth_3="2" pathEffect_3="5_5"/> 
-				<groupFilter minzoom="14" additional="access=private" strokeWidth="3" color="#e1e1d0" color_3="#c2c2d6" strokeWidth_3="2" pathEffect_3="5_5"/>
-				<groupFilter minzoom="14" additional="vehicle=no" shadowRadius="1" color="#e0e0eb" color_3="#40000000" strokeWidth_3="2" pathEffect_3="5_5"/>
-					<groupFilter>
-					<groupFilter minzoom="14" additional="vehicle=yes" shadowRadius="1" color="#ffffff" color_3="#ffffff"/>
-					<groupFilter minzoom="14" additional="bicycle=yes" shadowRadius="1" color="#ffffff" color_3="#ffffff"/>
-					</groupFilter>
-				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#e0e0eb" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
-				<groupFilter minzoom="10" additional="cyclestreet=yes" shadowRadius=":0" color="#ff8080" color_3="#ffe6e6"/>
-				<groupFilter minzoom="10" additional="bicycle_road=yes" shadowRadius=":0" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
-				</groupFilter>
+				<groupFilter minzoom="12" additional="bicycle=no" shadowRadius="1" color="#ffffff" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
+			</groupFilter>
 		</group>
-		
 		<group>
 			<filter tag="highway" value="pedestrian"/>
 			<groupFilter color="#BDBDBD" shadowRadius=":1" cap="ROUND">
@@ -577,14 +580,14 @@
 			 		</groupFilter>
 				</filter>
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#e0e0eb" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5" cap="BUTT"/>
-				<groupFilter minzoom="14" additional="bicycle=yes" color="#ff0000" color_3="#BDBDBD" cap="BUTT"/>
+				<groupFilter minzoom="14" additional="bicycle=yes" color="#BDBDBD" color_3="#ff0000" cap="BUTT"/>
 				<groupFilter minzoom="14" additional="bicycle=designated" color="#ff0000" color_3="#BDBDBD" cap="BUTT"/>
 			</groupFilter>
 			<!-- pedestrian roads are forbidden for cars and cyclists: show them like that in car and bicycle mode -->
 			<groupFilter appMode="car" tag="highway" value="pedestrian" color="#F7D4D4"/>
 			<!-- <groupFilter appMode="bicycle" tag="highway" value="pedestrian" color="#F7D4D4"/> -->
 		</group>
-		
+
 		<!-- Next segment: Highways without grade distinction (cycleway, bridleway, black path): pathEffect 4_2. Base setting for highways with possible grade distinction but none specified (track, byway, red footway): 5_5 -->
 		<group>
 			<!-- byway is deprecated tag, describes UK-only road. Proper tag should be highway=track or highway=path -->
@@ -597,44 +600,44 @@
 				<filter minzoom="14" strokeWidth="1"/>
 			</filter>
 			<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="4_2"/>
-		
-		<group>
-				<filter tag="highway" value="footway" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#585858"/>
-				<filter tag="highway" value="footway" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
-				<filter tag="highway" value="footway" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
-				<groupFilter minzoom="15">
-				<filter additional="surface=paved" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
-				<filter additional="surface=asphalt" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
-				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
-				<filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
-				<filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
-				</groupFilter>
-		</group>
 
-		<group>
+      <group>
+        <filter tag="highway" value="footway" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#585858"/>
+        <filter tag="highway" value="footway" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
+        <filter tag="highway" value="footway" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
+        <groupFilter minzoom="15">
+          <filter additional="surface=paved" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+          <filter additional="surface=asphalt" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+          <filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+          <filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+          <filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
+        </groupFilter>
+      </group>
+
+      <group>
 				<filter tag="highway" value="track" minzoom="13" maxzoom="14" strokeWidth="1" pathEffect="4_2" color="$trackColor"/>
 				<filter tag="highway" value="track" minzoom="15" maxzoom="15" strokeWidth="2" pathEffect="4_2" color="$trackColor"/>
 				<filter tag="highway" value="track" minzoom="16" strokeWidth="3" pathEffect="4_2" color="$trackColor"/>
 				<groupFilter>
-				<filter additional="tracktype=grade1" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect=""/>
-				<filter additional="tracktype=grade1" minzoom="14" maxzoom="14" color="#FFFFFF" shadowRadius=":1" strokeWidth="2" pathEffect=""/>
-				<filter additional="tracktype=grade1" minzoom="15" color="#FFFFFF" shadowRadius=":2" strokeWidth="3" pathEffect=""/>
+          <filter additional="tracktype=grade1" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect=""/>
+          <filter additional="tracktype=grade1" minzoom="14" maxzoom="14" color="#FFFFFF" shadowRadius=":1" strokeWidth="2" pathEffect=""/>
+          <filter additional="tracktype=grade1" minzoom="15" color="#FFFFFF" shadowRadius=":2" strokeWidth="3" pathEffect=""/>
 				</groupFilter>
-		</group>
-		
-		<group>
+      </group>
+
+      <group>
 				<filter tag="highway" value="path" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#585858"/>
 				<filter tag="highway" value="path" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
 				<filter tag="highway" value="path" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
 				<groupFilter minzoom="15">
-		<!--		<filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/> -->
-				<filter additional="surface=paved"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-				<filter additional="surface=asphalt"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-				<filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-				<filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+          <!-- <filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/> -->
+          <filter additional="surface=paved"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+          <filter additional="surface=asphalt"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+          <filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+          <filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+          <filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
 				</groupFilter>
-		</group>
+      </group>
 		
 			<filter tag="highway" value="steps" color="#fa5073" pathEffect="1_2">
 				<filter appMode="pedestrian" test="$hmRendered" minzoom="14" strokeWidth="4" pathEffect="2_2"/>
@@ -678,8 +681,8 @@
 				</filter>
 			</groupFilter>
 		</group>
-		
-	<switch minzoom="11">
+
+    <switch minzoom="11">
 			<switch>
 				<case showCycleRoutes="true" tag="route_bicycle" value=""/>
 				<case showCycleNodeNetworkRoutes="true" tag="route_bicycle" value=""/>
@@ -722,20 +725,19 @@
 					<case additional="network=ncn" color="$cycleRoutencnColor"/>
 					<case additional="network=icn" color="$cycleRouteicnColor"/>
 					<apply pathEffect="">
-					<case maxzoom="10" strokeWidth="1" pathEffect="3_6"/>
-					<case maxzoom="11" strokeWidth="1" pathEffect="3_6"/>
-					<case maxzoom="12" strokeWidth="1" pathEffect="3_6"/>
-					<case maxzoom="13" strokeWidth="2" pathEffect="3_6"/>
-					<case maxzoom="14" strokeWidth="3:3" pathEffect="10_6"/>
-					<case maxzoom="15" strokeWidth="3:3" pathEffect="10_6"/>
-					<case maxzoom="16" strokeWidth="3:3" pathEffect="10_6"/>
-					<case maxzoom="17" strokeWidth="3:3" pathEffect="10_6"/>
-					<case minzoom="18" strokeWidth="3:3" pathEffect="10_6"/>
+            <case maxzoom="10" strokeWidth="1" pathEffect="3_6"/>
+            <case maxzoom="11" strokeWidth="1" pathEffect="3_6"/>
+            <case maxzoom="12" strokeWidth="1" pathEffect="3_6"/>
+            <case maxzoom="13" strokeWidth="2" pathEffect="3_6"/>
+            <case maxzoom="14" strokeWidth="3:3" pathEffect="10_6"/>
+            <case maxzoom="15" strokeWidth="3:3" pathEffect="10_6"/>
+            <case maxzoom="16" strokeWidth="3:3" pathEffect="10_6"/>
+            <case maxzoom="17" strokeWidth="3:3" pathEffect="10_6"/>
+            <case minzoom="18" strokeWidth="3:3" pathEffect="10_6"/>
 					</apply>
 				</switch>
 			</apply_if>
 		</switch>
-		
 
 		<!-- Copy "Group of all Waterways with same color"; Remove pathEffect from default render xml -->
 		<group>
@@ -775,5 +777,6 @@
 		</group>
 
 	</line>
+
 </renderingStyle>
 
