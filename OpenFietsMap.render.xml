@@ -556,6 +556,8 @@
 			 		</groupFilter>
 				</filter>
 				<groupFilter minzoom="12" additional="bicycle=no" shadowRadius="1" color="#ffffff" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
+				<groupFilter minzoom="12" additional="cyclestreet=yes" shadowRadius=":1" color="#ff8080" />
+				<groupFilter minzoom="12" additional="bicycle_road=yes" shadowRadius=":1" color="#ff8080" />
 			</groupFilter>
 		</group>
 		<group>
