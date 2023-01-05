@@ -205,7 +205,7 @@
 		<case baseAppMode="bicycle" additional="cyclestreet=yes" attrColorValue="#ff8080"/>
 		<case baseAppMode="bicycle" additional="bicycle_road=yes" attrColorValue="#ff8080"/>
 	</renderingAttribute>	
-	
+
 	<text>
 		<group appMode="bicycle">
 			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#000000" textOrder="9"/> 
@@ -499,6 +499,7 @@
 					</groupFilter>
 				</filter>
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#b3b3cc" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
+				<groupFilter minzoom="12" additional="construction=yes" shadowRadius=":1" color="#a7a88c" strokeWidth="5" pathEffect="2_2" />
 			</groupFilter>
 		</group>
 		<group>
@@ -530,11 +531,15 @@
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#e6e600" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
 				<groupFilter minzoom="10" additional="cyclestreet=yes" shadowRadius=":0" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
 				<groupFilter minzoom="10" additional="bicycle_road=yes" shadowRadius=":0" color="#ff8080" color_3="#ffe6e6" strokewidth_3="1" pathEffect_3="50_0"/>
+				<groupFilter minzoom="12" additional="construction=yes" shadowRadius=":1" color="#a7a88c" strokeWidth="5" pathEffect="2_2" />
 			</groupFilter>
 		</group>
 		<group>
-			<filter  tag="highway" value="unclassified" color="#ffffff"/>
-			<filter  tag="highway" value="residential" color="#ffffff"/>
+			<filter tag="highway" value="unclassified" color="#ffffff"/>
+			<filter tag="highway" value="residential" color="#ffffff"/>
+			<filter tag="highway" value="road" color="#ffffff"/>
+			<filter tag="highway" value="living_street" color="#ffffff"/>
+			<filter tag="highway" value="service" color="#ffffff"/>
 			<groupFilter>
 				<filter color_0="#808080">
 					<filter minzoom="12" maxzoom="12" shadowRadius=":1" strokeWidth="1"/>
@@ -555,9 +560,11 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 			 		</groupFilter>
 				</filter>
-				<groupFilter minzoom="12" additional="bicycle=no" shadowRadius="1" color="#ffffff" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
+				<groupFilter minzoom="12" additional="bicycle=no" shadowRadius="1" color="#e8e8e8" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
+				<groupFilter minzoom="12" additional="access=private" shadowRadius="1" color="#e8e8e8" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
 				<groupFilter minzoom="12" additional="cyclestreet=yes" shadowRadius=":1" color="#ff8080" />
 				<groupFilter minzoom="12" additional="bicycle_road=yes" shadowRadius=":1" color="#ff8080" />
+				<groupFilter minzoom="12" additional="construction=yes" shadowRadius=":1" color="#a7a88c" strokeWidth="5" pathEffect="2_2" />
 			</groupFilter>
 		</group>
 		<group>
@@ -656,7 +663,21 @@
 					<filter minzoom="16" strokeWidth="3"/>
 				</groupFilter>
 			</group>
+			
+			<group>
+				<filter  tag="highway" value="busway" color="#e3dfe6" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5" cap="BUTT"/>
+				<groupFilter>
+					<filter minzoom="12" maxzoom="12" shadowRadius=":1" strokeWidth="1"/>
+					<filter minzoom="13" maxzoom="13" shadowRadius=":2" strokeWidth="2"/>
+					<filter minzoom="14" maxzoom="14" shadowRadius=":2" strokeWidth="3"/>
+					<filter minzoom="15" maxzoom="15" shadowRadius=":2" strokeWidth="5"/>
+					<filter minzoom="16" maxzoom="16" shadowRadius=":2" strokeWidth="8"/>
+					<filter minzoom="17" maxzoom="17" shadowRadius=":3" strokeWidth="10"/>
+					<filter minzoom="18" shadowRadius=":3" strokeWidth="14"/>
+				</groupFilter>
+			</group>
 
+			
 			<!-- Bridges -->
 			<groupFilter layer="1">
 				<filter nightMode="true" minzoom="14" color__1="#ffffff" strokeWidth__1="4:2.5" color_0="#000000" strokeWidth_0="4:1"/>
