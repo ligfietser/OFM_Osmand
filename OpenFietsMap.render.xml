@@ -109,7 +109,8 @@
 	<renderingAttribute name="cyclewayColor">
 		<case attrColorValue="#FF0000">
 			<apply_if nightMode="true" attrColorValue="#FF0000"/>
-		</case>	
+			<apply_if nightMode="true" attrColorValue="#FF0000"/>
+			</case>	
 	</renderingAttribute>
 
 	<renderingAttribute name="cycleRouteTextColor">
@@ -416,7 +417,7 @@
 				<groupFilter minzoom="14" additional="access=no" color="#80c2c2d6" color_3="#e1e1d0" pathEffect_3="5_1"/> 
 				<groupFilter minzoom="14" additional="access=private" color="#80c2c2d6" color_3="#e1e1d0" pathEffect_3="5_1"/>
 				<groupFilter minzoom="15" additional="bicycle=no" shadowRadius="1" color="#e0e0eb" color_3="#80000000" strokeWidth_3="1" pathEffect_3="5_5"/>
-      </groupFilter>
+			</groupFilter>
 		</group>
 
 		<switch>
@@ -628,9 +629,12 @@
 				<filter tag="highway" value="track" minzoom="15" maxzoom="15" strokeWidth="2" pathEffect="4_2" color="$trackColor"/>
 				<filter tag="highway" value="track" minzoom="16" strokeWidth="3" pathEffect="4_2" color="$trackColor"/>
 				<groupFilter>
-          <filter additional="tracktype=grade1" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect=""/>
-          <filter additional="tracktype=grade1" minzoom="14" maxzoom="14" color="#FFFFFF" shadowRadius=":1" strokeWidth="2" pathEffect=""/>
-          <filter additional="tracktype=grade1" minzoom="15" color="#FFFFFF" shadowRadius=":2" strokeWidth="3" pathEffect=""/>
+				<filter additional="tracktype=grade1" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect=""/>
+				<filter additional="tracktype=grade1" minzoom="14" maxzoom="14" color="#FFFFFF" shadowRadius=":1" strokeWidth="2" pathEffect=""/>
+				<filter additional="tracktype=grade1" minzoom="15" color="#FFFFFF" shadowRadius=":2" strokeWidth="3" pathEffect=""/>
+				<filter additional="tracktype=grade2" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect="10_3"/>
+				<filter additional="tracktype=grade2" minzoom="14" maxzoom="14" color="$trackColor" shadowRadius=":1" strokeWidth="2" pathEffect="10_3"/>
+				<filter additional="tracktype=grade2" minzoom="15" color="$trackColor" shadowRadius=":2" strokeWidth="3" pathEffect="10_3"/>
 				</groupFilter>
       </group>
 
