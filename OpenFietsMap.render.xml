@@ -207,6 +207,7 @@
 		<case baseAppMode="bicycle" additional="bicycle_road=yes" attrColorValue="#ff8080"/>
 	</renderingAttribute>	
 
+	
 	<text>
 		<group appMode="bicycle">
 			<filter NodeNumber="false" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="#000000" textOrder="9"/> 
@@ -612,9 +613,9 @@
 			<groupFilter appMode="bicycle" minzoom="15" additional="bicycle=no" color_3="#FFD1FF" strokeWidth_3="2" pathEffect_3="4_2"/>
 
       <group>
-        <filter tag="highway" value="footway" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#585858"/>
-        <filter tag="highway" value="footway" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
-        <filter tag="highway" value="footway" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
+        <filter tag="highway" value="footway" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#ffaa3b"/>
+        <filter tag="highway" value="footway" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#ffaa3b"/>
+        <filter tag="highway" value="footway" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#ffaa3b"/>
         <groupFilter minzoom="15">
           <filter additional="surface=paved" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
           <filter additional="surface=asphalt" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="3" pathEffect=""/>
@@ -635,32 +636,46 @@
 				<filter additional="tracktype=grade2" minzoom="13" maxzoom="13" color="$trackColor" strokeWidth=":1" pathEffect="10_3"/>
 				<filter additional="tracktype=grade2" minzoom="14" maxzoom="14" color="$trackColor" shadowRadius=":1" strokeWidth="2" pathEffect="10_3"/>
 				<filter additional="tracktype=grade2" minzoom="15" color="$trackColor" shadowRadius=":2" strokeWidth="3" pathEffect="10_3"/>
+				<filter additional="bicycle=no" color="#ffaa3b" pathEffect="4_2"/>
+				<filter additional="vehicle=no" color="#ffaa3b" pathEffect="4_2"/>
+				<filter additional="bicycle=permissive" color="$trackColor" pathEffect="4_2"/>
+				<filter additional="bicycle=yes" color="$trackColor" pathEffect="4_2"/>
+				<filter additional="bicycle=designated" color="#ff0000" pathEffect="4_2"/>
 				</groupFilter>
       </group>
 
-      <group>
+		<group>
 				<filter tag="highway" value="path" minzoom="14" maxzoom="14" strokeWidth="0.5" pathEffect="4_2" color="#585858"/>
 				<filter tag="highway" value="path" minzoom="15" maxzoom="15" strokeWidth="1" pathEffect="4_2" color="#585858"/>
 				<filter tag="highway" value="path" minzoom="16" strokeWidth="2" pathEffect="4_2" color="#585858"/>
 				<groupFilter minzoom="15">
-          <!-- <filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/> -->
-          <filter additional="surface=paved"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-          <filter additional="surface=asphalt"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-          <filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-          <filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
-          <filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<!-- <filter additional="bicycle=designated" color="#FF0000" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/> -->
+				<filter additional="surface=paved"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=asphalt"  color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=paving_stones" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=paving_stones:30" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
+				<filter additional="surface=concrete" color="#BDBDBD" shadowRadius=":1" cap="ROUND" strokeWidth="4" pathEffect=""/>
 				</groupFilter>
-      </group>
-		
-			<filter tag="highway" value="steps" color="#fa5073" pathEffect="1_2">
+				<groupFilter minzoom="15">
+				<filter additional="bicycle=no" color="#ffaa3b" pathEffect="4_2"/>
+				<filter additional="vehicle=no" color="#ffaa3b" pathEffect="4_2"/>
+				<filter additional="bicycle=permissive" color="#ff0000" pathEffect="4_2"/>
+				<filter additional="bicycle=yes" color="#ff0000" pathEffect="4_2"/>
+				<filter additional="bicycle=designated" color="#ff0000" pathEffect="5_5"/>
+				</groupFilter>
+		</group>		
+
+		<group>	
+				<filter tag="highway" value="steps" color="#fa5073" pathEffect="1_2">
 				<filter appMode="pedestrian" test="$hmRendered" minzoom="14" strokeWidth="4" pathEffect="2_2"/>
 				<filter appMode="pedestrian" minzoom="15" strokeWidth="4" pathEffect="2_2"/>
 				<filter test="$hmRendered" minzoom="14" strokeWidth="4"/>
 				<filter minzoom="16" strokeWidth="4"/>
-			</filter>
+				</filter>
+		</group>
 
 			<group>
-				<filter  tag="highway" value="bridleway" color="#bd9500" pathEffect="2_2"/>
+				<filter  tag="highway" value="bridleway" color="#ffaa3b" pathEffect="2_2"/>
 				<groupFilter>
 					<filter minzoom="12" maxzoom="12" strokeWidth="1"/>
 					<filter minzoom="13" strokeWidth="2"/>
